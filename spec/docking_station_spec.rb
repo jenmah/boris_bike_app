@@ -26,4 +26,9 @@ describe DockingStation do
     expect(station.full?).to be true
   end
 
+  it "should not accept a bike if it's full" do
+    20.times { station.dock(Bike.new) }
+    expect {station.dock(bike) }.to raise_error RuntimeError
+  end
+
 end
